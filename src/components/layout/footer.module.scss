@@ -1,0 +1,150 @@
+.footer{
+  position: relative;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.new_year{
+  background-image: url("/footer_new_year.png");
+  border-radius: 0px 0px 0px 0px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-color: transparent;
+  border-style: solid;
+  z-index: 12;
+  position: absolute;
+  height: 100px;
+  width: 817px;
+}
+
+.wrapper{
+  padding: 80px 0;
+}
+
+.box_wrapper{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  &:first-child{
+    margin-bottom: 40px;
+  }
+}
+
+.logo{
+  min-width: 150px;
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.title{
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+.contact_item{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 600;
+  &:not(last-child){
+    margin-bottom: 5px;
+  }
+  &:hover{
+    opacity: .7;
+    transition: opacity .3s;
+  }
+}
+.info{
+  margin-right: 80px;
+}
+.menu{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  &:not(:last-child){
+    margin-right: 50px;
+  }
+}
+
+.menu_item{
+  color: var(--color-white-light);
+  font-size: 14px;
+  &:not(last-child){
+    margin-bottom: 13px;
+  }
+  &:hover{
+    opacity: .7;
+    transition: opacity .3s;
+  }
+}
+
+.copyright{
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.line{
+  margin: 5px 0;
+  height: 1px;
+  background: var(--color-dark);
+}
+
+.action{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.socials{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.socials_item{
+  position: relative;
+  cursor: pointer;
+  &:hover{
+    opacity: .7;
+    transition: opacity .3s;
+  }
+}
+
+.langs{
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-dark);
+  border-radius: 5px;
+}
+
+.lang{
+  padding: 10px 13px;
+  color: var(--color-dark);
+  border-radius: 5px;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.lang_active{
+  background-color: var(--color-dark);
+  color: var(--bg-dark);
+}
