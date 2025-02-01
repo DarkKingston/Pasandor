@@ -139,14 +139,18 @@
 .lang{
   padding: 7px 10px;
   color: var(--color-dark);
-  border-radius: 5px;
   background-position: center center;
   border-color: transparent;
   border-style: solid;
   cursor: pointer;
 }
-
-.lang_active{
+.lang_last{
+  background-color: var(--color-dark);
+  color: var(--bg-dark);
+  border-radius: 5px 0 0 5px;
+}
+.lang_first{
+  border-radius: 0 5px 5px 0;
   background-color: var(--color-dark);
   color: var(--bg-dark);
 }

@@ -1,13 +1,14 @@
 'use client';
-
+import { content } from "@/data/content";
+import { useLangStore } from "@/store/langStore";
 import { useState } from "react";
 import Image from "next/image";
 import footer from "./footer.module.scss"
 import Link from 'next/link'
 
 export default function Footer() {
-    const [activeLang, setActiveLang] = useState("RUS");
-
+    const { lang, setLang } = useLangStore();
+    const texts = content[lang.toLowerCase()];
     return (
         <div className={footer.footer}>
             <div className={footer.new_year} style={{ left: "-629px", top: "-42px" }}></div>
@@ -44,7 +45,7 @@ export default function Footer() {
                                 </Link>
                                 <div className={footer.item}>
                                     <div className={footer.title}>
-                                        Контакты
+                                        {texts.contacts}
                                     </div>
                                     <Link href="tel:00000000000" className={footer.contact_item}>
                                     <span>
@@ -61,39 +62,39 @@ export default function Footer() {
                                 </div>
                             </div>
                             <div className={footer.menu}>
-                                <div className={`${footer.title}`}>Компания</div>
-                                <Link href='#' className={footer.menu_item}>О нас</Link>
-                                <Link href='#' className={footer.menu_item}>Партнерам</Link>
-                                <Link href='#' className={footer.menu_item}>Разработчика</Link>
-                                <Link href='#' className={footer.menu_item}>Контакты и реквизиты</Link>
-                                <Link href='#' className={footer.menu_item}>Цены</Link>
+                                <div className={`${footer.title}`}>{texts.company}</div>
+                                <Link href='#' className={footer.menu_item}>{texts.about}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.partners}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.developers}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.contacts_details}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.prices}</Link>
                             </div>
                             <div className={footer.menu}>
-                                <div className={`${footer.title}`}>Возможности</div>
-                                <Link href='#' className={footer.menu_item}>Онлайн-запись</Link>
-                                <Link href='#' className={footer.menu_item}>Электронный журнал</Link>
-                                <Link href='#' className={footer.menu_item}>Уведомления</Link>
-                                <Link href='#' className={footer.menu_item}>Аналитика и отчеты</Link>
-                                <Link href='#' className={footer.menu_item}>Складской учет</Link>
-                                <Link href='#' className={footer.menu_item}>Онлайн чаевые</Link>
-                                <Link href='#' className={footer.menu_item}>Расчет зарплаты</Link>
+                                <div className={`${footer.title}`}>{texts.opportunities}</div>
+                                <Link href='#' className={footer.menu_item}>{texts.online_enrollment}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.e_journal}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.notifications}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.reports}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.warehouse_accounting}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.online_tip}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.payroll}</Link>
                             </div>
                             <div className={footer.menu}>
-                                <div className={`${footer.title}`}>Для любого бизнеса</div>
-                                <Link href='#' className={footer.menu_item}>Красота</Link>
-                                <Link href='#' className={footer.menu_item}>Медицина</Link>
-                                <Link href='#' className={footer.menu_item}>Спорт</Link>
-                                <Link href='#' className={footer.menu_item}>Досуг и отдых</Link>
-                                <Link href='#' className={footer.menu_item}>Образование</Link>
-                                <Link href='#' className={footer.menu_item}>Авто</Link>
-                                <Link href='#' className={footer.menu_item}>Бытовые услуги</Link>
-                                <Link href='#' className={footer.menu_item}>Розница</Link>
+                                <div className={`${footer.title}`}>{texts.any_bussiness}</div>
+                                <Link href='#' className={footer.menu_item}>{texts.beauty}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.medicine}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.sport}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.relax}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.education}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.car}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.dom_service}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.retail}</Link>
                             </div>
                             <div className={footer.menu}>
-                                <div className={`${footer.title}`}>Правовая информация</div>
-                                <Link href='#' className={footer.menu_item}>Пользовательское соглашение</Link>
-                                <Link href='#' className={footer.menu_item}>Конфиденциальность</Link>
-                                <Link href='#' className={footer.menu_item}>Использование cookie</Link>
+                                <div className={`${footer.title}`}>{texts.legal_info}</div>
+                                <Link href='#' className={footer.menu_item}>{texts.user_agreement}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.privacy}</Link>
+                                <Link href='#' className={footer.menu_item}>{texts.use_cookie}</Link>
                             </div>
                         </div>
                     </div>
@@ -111,14 +112,14 @@ export default function Footer() {
                             </div>
                             <div className={footer.langs}>
                                 <div
-                                    className={`${footer.lang} ${activeLang === "RUS" ? footer.lang_active : ""}`}
-                                    onClick={() => setActiveLang("RUS")}
+                                    className={`${footer.lang} ${lang === "ru" ? footer.lang_first : ""}`}
+                                    onClick={() => setLang("ru")}
                                 >
                                     RUS
                                 </div>
                                 <div
-                                    className={`${footer.lang} ${activeLang === "ENG" ? footer.lang_active : ""}`}
-                                    onClick={() => setActiveLang("ENG")}
+                                    className={`${footer.lang} ${lang === "en" ? footer.lang_last : ""}`}
+                                    onClick={() => setLang("en")}
                                 >
                                     ENG
                                 </div>
